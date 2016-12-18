@@ -1,0 +1,12 @@
+<div class="jumbotron">	
+	<h2>Nova tarefa</h2>	
+	<input class="form-control" name="afazer" type="text" ng-model="todo.afazer" placeholder="Tarefa" ng-required="true">
+
+	<select class="form-control" ng-model="todo.dia" ng-options="dias.nome group by dias.semana for dias in diasdasemana">
+	<option value="">Selecione um dia da semana </option>
+	</select>
+
+	<input class="btn btn-primary btn-block" ng-disabled="formTodos.afazer.$invalid" ng-click="novaTarefa(todo)" type="button" value="salvar">
+
+	<input class="btn btn-danger btn-block" ng-disabled="!temTarefaSelecionada(todos)" ng-click="excluirTarefas(todos)" type="button" value="Remover concluidos"/>
+</div>

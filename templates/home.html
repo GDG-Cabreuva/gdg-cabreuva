@@ -1,0 +1,31 @@
+<div>
+	<div class="jumbotron">
+		<h3>{{app}}</h3>
+		<todo-alert titulo="ERRO" ng-if="erro">
+			{{erro}}
+		</todo-alert>
+		
+			<form name="formTodos">
+				<input class="form-control" type="text" ng-model="busca" placeholder="Buscar">
+
+				<table class="table table-striped">
+					<tr>
+						<th></th>
+						<th>Serial Number</th>
+						<th>A fazer</th>
+						<th>Dia</th>
+						<th>Data</th>
+
+					</tr>
+					<tr ng-class="{'concluido italico':todo.concluida}"ng-repeat="todo in todos | filter:busca">
+						<td> <input type="checkbox" ng-model="todo.concluida" /> </td>
+						<td>{{todo.serial}}</td>
+						<td>{{todo.afazer | etc}}</td>
+						<td>{{todo.dia.nome}}</td>
+						<td>{{todo.data}}</td>
+					</tr>
+				</table>
+				<a href="#/novo" class="btn btn-success btn-block">Nova tarefa</a>
+		</form>
+	</div>
+</div>
